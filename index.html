@@ -88,14 +88,8 @@
 
       const postHeight = () => {
         const height = document.body.offsetHeight;
-        // TODO: Remove this one
+        // TODO: Remove this target origin and add all possible environments
         window.parent.postMessage({ form : { height }}, "https://rf6lxq.csb.app/");
-        // Local env
-        window.parent.postMessage({ form : { height }}, "https://degrees.loc/");
-        // Staging env
-        window.parent.postMessage({ form : { height }}, "https://staging.degrees.nau.edu/");
-        // Prod env
-        window.parent.postMessage({ form : { height }}, "https://degrees.nau.edu/");
       };
     
       if (typeof window !== 'undefined') {
