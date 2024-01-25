@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    
+    <div class="py-0 px-0">
+      <form class="mx-auto">
+        <div class="mb-3">
+          <label for="inputFirstName" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="inputFirstName" placeholder="John">
+        </div>
+      
+        <div class="mb-3">
+          <label for="inputLastName" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="inputLastName" placeholder="Doe">
+        </div>
+      
+        <div class="mb-3">
+          <label for="inputEmail" class="form-label">Email Address</label>
+          <input type="email" class="form-control" id="inputEmail" placeholder="name@example.com">
+        </div>
+      
+        <div class="mb-3">
+          <label for="inputPhone" class="form-label">Phone Number</label>
+          <input type="tel" class="form-control" id="inputPhone" placeholder="123-456-7890">
+        </div>
+      
+        <div class="mb-3">
+          <label for="inputDateOfBirth" class="form-label">Date of Birth</label>
+          <input type="date" class="form-control" id="inputDateOfBirth">
+        </div>
+      
+        <div class="mb-3">
+          <label for="inputAddress" class="form-label">Address Line 1</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+        </div>
+      
+        <div class="mb-3">
+          <label for="inputCity" class="form-label">City</label>
+          <input type="text" class="form-control" id="inputCity" placeholder="Anytown">
+        </div>
+      
+        <div class="mb-3">
+          <label for="inputState" class="form-label">State</label>
+          <input type="text" class="form-control" id="inputState" placeholder="State">
+        </div>
+      
+        <div class="mb-3">
+          <label for="inputZip" class="form-label">Zip</label>
+          <input type="text" class="form-control" id="inputZip" placeholder="12345">
+        </div>
+      
+        <div class="mb-3">
+          <label for="inputMessage" class="form-label">Message</label>
+          <textarea class="form-control" id="inputMessage" rows="4" placeholder="Your message"></textarea>
+        </div>
+
+        <p>Here is some additional legal information. A link to a privacy page and a link to the terms of service. There would also be a checkbox here to ask the user to agree.</p>
+      
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+    <script>
+      'use strict';
+      function debounce(func, wait) {
+          let timeout;
+
+          return function executedFunction(...args) {
+              const later = function() {
+                  clearTimeout(timeout);
+                  func(...args);
+              };
+
+              clearTimeout(timeout);
+              timeout = setTimeout(later, wait);
+          };
+      }
+
+      const postHeight = () => {
+        const height = document.body.offsetHeight;
+        // TODO: Remove this one
+        window.parent.postMessage({ form : { height }}, "https://rf6lxq.csb.app/");
+        // Local env
+        window.parent.postMessage({ form : { height }}, "https://degrees.loc/");
+        // Staging env
+        window.parent.postMessage({ form : { height }}, "https://staging.degrees.nau.edu/");
+        // Prod env
+        window.parent.postMessage({ form : { height }}, "https://degrees.nau.edu/");
+      };
+    
+      if (typeof window !== 'undefined') {
+        document.addEventListener("DOMContentLoaded", () => {
+          postHeight();
+        });
+        const debouncedResizeHandler = debounce(postHeight, 420);
+        window.addEventListener("resize", debouncedResizeHandler);
+      }
+    </script>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>
