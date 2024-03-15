@@ -90,6 +90,8 @@
         const height = document.body.offsetHeight;
         // TODO: Remove this target origin and add all possible environments
         window.parent.postMessage({ form : { height }}, "https://rf6lxq.csb.app/");
+        // secondary sandbox environment
+        window.parent.postMessage({ form : { height }}, "https://mn9g46.csb.app/");
       };
     
       if (typeof window !== 'undefined') {
